@@ -2,7 +2,7 @@ MAINTAINERCLEANFILES = Makefile.in
 
 #Subdirs; place '.' before any directory to force the current directory to
 #be compiled before the subdirs.
-SUBDIRS = 2d_engine
+#SUBDIRS = subdir
 
 #
 # Libs
@@ -28,9 +28,9 @@ SUBDIRS = 2d_engine
 #
 
 # Program name
-bin_PROGRAMS = make_a_game
+bin_PROGRAMS = 2d_engine
 
-make_a_game_SOURCES = main.cc
-make_a_game_LDADD = -lSDL2 -lpthread -lrt
+2d_engine_SOURCES = main.cc game.cc
+2d_engine_LDADD = -lSDL2
 
 #You can also tweak CFLAGS, CXXFLAGS and CPPFLAGS

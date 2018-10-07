@@ -42,6 +42,7 @@ AC_CONFIG_FILES([
 	Makefile
 
 	src/Makefile
+	src/2d_engine/Makefile
 
 ])
 
