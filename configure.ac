@@ -43,6 +43,7 @@ AC_CONFIG_FILES([
 
 	src/Makefile
 	src/2d_engine/Makefile
+	src/2d_engine_textures/Makefile
 
 ])
 
