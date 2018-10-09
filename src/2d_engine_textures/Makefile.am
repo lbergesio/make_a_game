@@ -1,7 +1,12 @@
 MAINTAINERCLEANFILES = Makefile.in
 
-#Subdirs; place '.' before any directory to force the current directory to
-#be compiled before the subdirs.
+#
+# Extra files
+#
+#EXTRA_DIST = assets
+#
+##Subdirs; place '.' before any directory to force the current directory to
+##be compiled before the subdirs.
 #SUBDIRS = assets
 
 #
@@ -30,7 +35,7 @@ MAINTAINERCLEANFILES = Makefile.in
 # Program name
 bin_PROGRAMS = 2d_engine_textures
 
-2d_engine_textures_SOURCES = main.cc game.cc
+2d_engine_textures_SOURCES = main.cc game.cc texture_manager.cc
 2d_engine_textures_LDADD = -lSDL2 -lSDL2_image
 
 #You can also tweak CFLAGS, CXXFLAGS and CPPFLAGS
