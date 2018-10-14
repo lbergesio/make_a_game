@@ -35,7 +35,8 @@ MAINTAINERCLEANFILES = Makefile.in
 # Program name
 bin_PROGRAMS = 2d_engine_textures
 
-2d_engine_textures_SOURCES = main.cc game.cc texture_manager.cc game_object.cc
+2d_engine_textures_SOURCES = main.cc game.cc texture_manager.cc game_object.cc \
+				map.cc
 2d_engine_textures_LDADD = -lSDL2 -lSDL2_image
 
 #You can also tweak CFLAGS, CXXFLAGS and CPPFLAGS

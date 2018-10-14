@@ -1,10 +1,12 @@
+#ifndef GAME_OBJECT_HEADER
+#define GAME_OBJECT_HEADER
+
+
 #include "game_object.h"
 #include "texture_manager.h"
 
-GameObject::GameObject(const char* textureSheet, SDL_Renderer* ren, int x,
-									int y){
-	renderer = ren;
-	objTexture = TextureManager::LoadTexture(textureSheet, ren);
+GameObject::GameObject(const char* textureSheet, int x, int y){
+	objTexture = TextureManager::LoadTexture(textureSheet);
 	if(!objTexture){
 		std::cout << "Could not load object texture: %s!!" << textureSheet << std::endl; 
 		exit(1);
@@ -18,8 +20,8 @@ void GameObject::Update(){
 	xpos++;
 	ypos++;
 
-	srcRect.h = 64;
-	srcRect.w = 64;
+	srcRect.h = 32;
+	srcRect.w = 32;
 	srcRect.x = 0;
 	srcRect.y = 0;
 
@@ -30,7 +32,9 @@ void GameObject::Update(){
 }
 
 void GameObject::Render(){
-	if(SDL_RenderCopy(renderer, objTexture, &srcRect, &dstRect))
+	if(SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &dstRect))
 		std::cout << "Game object not rendered!: %s" << SDL_GetError() << std::endl; 
 
 }
+
+#endif
