@@ -2,12 +2,17 @@
 #include "map.h"
 #include "game_object.h"
 #include "texture_manager.h"
+#include "ecs.h"
+#include "components.h"
 
 GameObject* player;
 GameObject* enemy;
 Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
+
+Manager manager;
+auto& newPlayer(manager.addEntity());
 
 Game::Game(){}
 
@@ -41,6 +46,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height,
 	enemy = new GameObject(filename2, 32, 0);
 
 	map = new Map();
+
+	newPlayer.addComponent<PositionComponent>();
+	newPlayer.getComponent<PositionComponent>().setPos(500, 500);
 }
 
 void Game::handleEvents(){
@@ -59,6 +67,9 @@ void Game::handleEvents(){
 void Game::update(){
 	player->Update();
 	enemy->Update();
+	manager.update();
+	std::cout << newPlayer.getComponent<PositionComponent>().x() << ", " <<
+		newPlayer.getComponent<PositionComponent>().y() << std::endl;
 }
 
 void Game::render(){
