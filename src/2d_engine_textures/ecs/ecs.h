@@ -44,10 +44,12 @@ class Entity
 public:
 	void update(){
 		for(auto& c : components) c->update();
+	}
+
+	void draw(){
 		for (auto&c : components) c->draw();
 	}
 
-	void draw(){}
 	bool isActive() const { return active; }
 	void destroy() { active = false; }
 
